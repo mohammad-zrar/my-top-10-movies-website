@@ -6,10 +6,10 @@ from wtforms import StringField, SubmitField, HiddenField
 from wtforms.validators import DataRequired, Length
 import requests
 
-API_KEY = "0012bd40254074930b0229a4ce50d7fb"
+API_KEY = "the key"
 SEARCH_URL = "https://api.themoviedb.org/3/search/movie"
 
-
+# Creating the form using FlaskForm
 class RateMovieForm(FlaskForm):
     rating = StringField("Your Rating Out of 10 e.g. 7.5", validators=[DataRequired("Required field")])
     review = StringField("Your Review", validators=[DataRequired(message="Required field"),
@@ -22,12 +22,13 @@ class RateMovieForm(FlaskForm):
 class AddMovieForm(FlaskForm):
     title = StringField("Movie Title", validators=[DataRequired("Set the movie title")])
     submit = SubmitField("Add Movie")
-
+# -------------
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '8BYkEfBA6O6donzWlSihBXox7C0sKR6b'
 Bootstrap(app)
 
+# Creating the database
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///top-movies.db"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
@@ -47,6 +48,7 @@ class Movie(db.Model):
 app.app_context().push()
 db.create_all()
 
+# # Here bellow inseting first record to test
 # new_movie = Movie(
 #         title="Phone Booth",
 #         year=2002,
