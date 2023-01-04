@@ -8,3 +8,5 @@ As we watch more movies, we can always update our list and keep track of which m
 I used this free API to search movie https://developers.themoviedb.org/3/search/search-movies
 
 and you can search by ID from here https://developers.themoviedb.org/3/movies/get-movie-details
+
+Note: You have to install Flask and SQLAlchemy
